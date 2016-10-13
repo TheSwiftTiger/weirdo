@@ -1,0 +1,33 @@
+miracle,marvel,prodigy,unusualness
+dexterity,speed,swiftness,alacrity,rapidity,flexibility,agility
+endurance,courage,fortitude,grit,patience,perseverance,persistence,stamina,guts,tenacity,vitality
+faith,fidelity,devotion,piety,holiness,goodness
+handiness,skill,capability,expertise,ingenuity,proficiency,talent,craft
+intelligence,brains,genius,cleverness,IQ,judgment,wit,sense,brightness
+luck,advantage,privilege,happiness,karma,kismet,stroke,triumph,wealth
+mischief,devilry,mischievousness,naughtiness,hijinks,deceival,playfulness,evil,sin
+perception,attention,consciousness,sense,sensibility,quickness,reaction
+charisma,confidence,allure,glamour,appeal,pizzazz,beauty,coolness,heart
+strength,power,physique,punch,muscle,energy,clout,firmness,toughness,body,brawn,potency
+There's nothing really special about you. (This message should never appear in-game.)
+Your every move hurts and you ache all over. Don't even try to run.
+You're utterly underweight and you can't take a single hit.
+You're as atheistic as it gets and you'll make sure to let everyone know that.
+You got 2 left hands, you're the epitome of clumsiness and everything you touch WILL break.
+You're mentally disabled or as you would put it - Me can't think good.
+You are the world's unluckiest person. Congratulations.
+You're too good-hearted to ever do something unruly.
+You lost your eyesight on one eye a while ago and have a seeing disorder on the other eye...
+You are an awkward fellow with absolutely no social skills.
+You're physically disabled or - to put it bluntly - a complete cripple.
+You're a cheater, having 2 bonus stats. (This message should never ever appear in-game!)
+You're quick as a rabbit. Climbing, sprinting, jumping - it's all easy-peasy for you.
+While your massive weight might be unhealthy, it provides you with tons of defense against everything.
+You were raised in a strict religious community and you're still a devout worshipper of god.
+Years of experience have made you a crafting genius. Whether fixing, building or using - technology is your bitch.
+You've always been a model student, rivaling the likes of Einstein.
+You swallowed a dice and almost choked on a clover as a kid, so now you've got the devil's luck.
+You have no morals at all and thus your life is just way more fun! Go ahead and shank a bitch!
+You got the eagle's eye, ears of a master musician and a master nose - even though that's annoying sometimes.
+You are the master of social interaction, seduction and manipulation.
+You got the perfect health for a bodybuilder and you still have the knowledge from your old martial arts career.
