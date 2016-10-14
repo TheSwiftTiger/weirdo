@@ -4,3 +4,12 @@ M:\Paul\Games\weirdo\weirdo\bin\Debug\weirdo.exe
 M:\Paul\Games\weirdo\weirdo\bin\Debug\weirdo.pdb
 M:\Paul\Games\weirdo\weirdo\obj\Debug\weirdo.exe
 M:\Paul\Games\weirdo\weirdo\obj\Debug\weirdo.pdb
+E:\Safal\weirdo\weirdo\weirdo\bin\Debug\weirdo.exe.config
+E:\Safal\weirdo\weirdo\weirdo\obj\Debug\weirdo.exe
+E:\Safal\weirdo\weirdo\weirdo\obj\Debug\weirdo.pdb
+E:\Safal\weirdo\weirdo\weirdo\bin\Debug\weirdo.exe
+E:\Safal\weirdo\weirdo\weirdo\bin\Debug\weirdo.pdb
+E:\Safal\weirdo\weirdo\weirdo\obj\Debug\weirdo.csprojResolveAssemblyReference.cache
+E:\Safal\weirdo2\weirdo\bin\Debug\weirdo.exe.config
+E:\Safal\weirdo2\weirdo\obj\Debug\weirdo.exe
+E:\Safal\weirdo2\weirdo\obj\Debug\weirdo.pdb

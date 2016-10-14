@@ -26,6 +26,20 @@ namespace weirdo
             else return false;
         }
 
+        public static IList<T> Shuffle<T>(IList<T> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = RandomNumberGenerator.RandomInt(0, n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+            return list;
+        }
+
         public static void PrintSlow(string text)
         {
             foreach (var c in text)
@@ -76,6 +90,19 @@ namespace weirdo
 
                 Console.ReadKey();
             }
+            if (Console.ReadKey().Key.ToString().ToUpper() == "R")
+            {
+                if (player.CheckForStatAmount(StatTemplates.Intelligence.ID) != 0)
+                {
+                    player.ReadBook(5, 1);
+                }
+                else
+                {
+                    PrintSlow("You cannot read books.");
+                }
+
+                Console.ReadKey();
+            }
             else
             {
                 Console.WriteLine("");
@@ -86,6 +113,7 @@ namespace weirdo
                 Console.WriteLine("");
 
             }
+
         }
     }
 }

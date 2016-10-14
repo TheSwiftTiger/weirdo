@@ -20,5 +20,6 @@ namespace weirdo
             _name = srArray1[RandomNumberGenerator.RandomInt(0, srArray1.Length - 1)] + srArray2[RandomNumberGenerator.RandomInt(0, srArray2.Length - 1)];
             return _name;
         }
+
     }
 }

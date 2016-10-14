@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace weirdo
 {
@@ -38,6 +39,32 @@ namespace weirdo
             {
                 Console.WriteLine("");
                 Program.PrintSlow(v.Name + " increased by " + RandomNumberGenerator.RandomInt(1,5));
+            }
+        }
+
+        public void ReadBook(int wordrichness, int type)
+        {
+            Stat intelligence = null;
+            foreach (Stat s in PlayerStats)
+            {
+                if (s.Category == StatTemplates.Intelligence.ID)
+                {
+                    intelligence = s;
+                }
+            }
+            string[] words = File.ReadLines(@"words.txt").Skip(type).Take(1).First().Split(',');
+            string[] facts = File.ReadLines(@"facts.txt").Skip(type).Take(1).First().Split(',');
+            int wlearnt = RandomNumberGenerator.RandomInt(2, wordrichness);
+            int flearnt = RandomNumberGenerator.RandomInt(0, facts.Count()) - 1;
+            int intel = Convert.ToInt32(wlearnt * 0.5);
+            if (flearnt == -1)
+            {
+                Program.PrintSlow($"You learnt §{wlearnt}ß new words:\n§{String.Join(", ", Program.Shuffle(words).Take(wlearnt))}ß\n\nYou learnt no facts.\n\nThis gives you §{intel} {intelligence.Name}ß!");
+            }
+            else
+            {
+                intel += 2;
+                Program.PrintSlow($"You learnt §{wlearnt}ß new words:\n§{String.Join(", ", Program.Shuffle(words).Take(wlearnt))}ß\n\nYou learnt a fact: {facts[flearnt]}.\n\nThis gives you §{intel} {intelligence.Name}ß!");
             }
         }
 
