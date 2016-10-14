@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookReading.cs" />
     <Compile Include="NameGenerator.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
