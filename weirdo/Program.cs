@@ -32,7 +32,7 @@ namespace weirdo
             while (n > 1)
             {
                 n--;
-                int k = RandomNumberGenerator.RandomInt(0, n + 1);
+                int k = RandomNumberGenerator.RandomInt(0, n);
                 T value = list[k];
                 list[k] = list[n];
                 list[n] = value;
@@ -84,17 +84,33 @@ namespace weirdo
                     Console.WriteLine(StatTemplates.GetStatTemplateByID(i).TwoMessage);
                 }
             }
-            if(Console.ReadKey().Key.ToString().ToUpper() == "L")
+            player.DisplayMoney();
+            player.PickupMoney(100);
+
+            if (Console.ReadKey().Key.ToString().ToUpper() == "L")
             {
                 player.LevelUp();
-
+                
                 Console.ReadKey();
             }
-            if (Console.ReadKey().Key.ToString().ToUpper() == "R")
+            else if (Console.ReadKey().Key.ToString().ToUpper() == "S")
             {
                 if (player.CheckForStatAmount(StatTemplates.Intelligence.ID) != 0)
                 {
-                    player.ReadBook(5, 1);
+                    player.ReadBook(9, 1);
+                }
+                else
+                {
+                    PrintSlow("You cannot read books.");
+                }
+
+                Console.ReadKey();
+            }
+            else if (Console.ReadKey().Key.ToString().ToUpper() == "G")
+            {
+                if (player.CheckForStatAmount(StatTemplates.Intelligence.ID) != 0)
+                {
+                    player.ReadBook(5, 0);
                 }
                 else
                 {
@@ -111,9 +127,8 @@ namespace weirdo
                 PrintSlow("The town has a §General Storeß, a §Church of the Lordß, a §Public Buildingß and two §Residential Homesß.");
                 Console.ReadLine();
                 Console.WriteLine("");
-
             }
-
+            
         }
     }
 }
