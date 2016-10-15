@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -11,8 +12,10 @@ namespace weirdo
 
     class Program
     {
+      
         public static bool YesOrNo(string prompt)
         {
+            
             string s = "";
             Console.WriteLine(prompt);
             while (s != "y" && s != "n")
@@ -84,16 +87,19 @@ namespace weirdo
                     Console.WriteLine(StatTemplates.GetStatTemplateByID(i).TwoMessage);
                 }
             }
-            player.DisplayMoney();
-            player.PickupMoney(100);
+           // player.DisplayMoney();
+           // player.PickupMoney(100);
 
-            if (Console.ReadKey().Key.ToString().ToUpper() == "L")
+            ConsoleKeyInfo _input;
+            _input = Console.ReadKey(false);
+            Debug.WriteLine(_input.KeyChar.ToString().ToUpper());
+            if (_input.KeyChar.ToString().ToUpper() == "L")
             {
                 player.LevelUp();
                 
-                Console.ReadKey();
+               
             }
-            else if (Console.ReadKey().Key.ToString().ToUpper() == "S")
+            else if (_input.KeyChar.ToString().ToUpper() == "S")
             {
                 if (player.CheckForStatAmount(StatTemplates.Intelligence.ID) != 0)
                 {
@@ -104,9 +110,9 @@ namespace weirdo
                     PrintSlow("You cannot read books.");
                 }
 
-                Console.ReadKey();
+               
             }
-            else if (Console.ReadKey().Key.ToString().ToUpper() == "G")
+           else if (_input.KeyChar.ToString().ToUpper() == "G")
             {
                 if (player.CheckForStatAmount(StatTemplates.Intelligence.ID) != 0)
                 {
@@ -117,9 +123,9 @@ namespace weirdo
                     PrintSlow("You cannot read books.");
                 }
 
-                Console.ReadKey();
+               
             }
-            else
+            else if (_input.KeyChar.ToString().ToUpper() == "A")
             {
                 Console.WriteLine("");
                 PrintSlow("You are standing in front of §Your Homeß in the town of §" + NameGenerator.TownNameGenerator().ToUpper() + "ß.");

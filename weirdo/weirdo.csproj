@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Area.cs" />
+    <Compile Include="Map.cs" />
     <Compile Include="NameGenerator.cs" />
+    <Compile Include="Object.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,6 +55,7 @@
     <Compile Include="Stat.cs" />
     <Compile Include="StatTemplate.cs" />
     <Compile Include="StatTemplates.cs" />
+    <Compile Include="SubArea.cs" />
     <Compile Include="WorldGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
