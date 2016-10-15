@@ -10,5 +10,19 @@ namespace weirdo
     {
         public int ID { get; set; }
         public string Name { get; set; }
+        public Area Location { get; set; }
+
+        public void CreateIn(Area destinationArea)
+        {
+            destinationArea.Objects.Add(this);
+            Location = destinationArea;
+        }
+
+        public void MoveBetween(Area startingArea, Area destinationArea)
+        {
+            startingArea.Objects.Remove(this);
+            Location = destinationArea;
+            destinationArea.Objects.Add(this);
+        }
     }
 }

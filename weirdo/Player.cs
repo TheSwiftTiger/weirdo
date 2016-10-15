@@ -11,7 +11,7 @@ namespace weirdo
 {
     
 
-    public class Player
+    public class Player : Object
     {
         public List<Stat> PlayerStats { get; set; }
         const int STAT_COUNT = 10;
@@ -96,6 +96,8 @@ namespace weirdo
 
         public Player()
         {
+            ID = 0;
+            Name = "Player";
             PlayerStats = new List<Stat>();
 
             int _doubleStat = RandomNumberGenerator.RandomInt(1, 10);

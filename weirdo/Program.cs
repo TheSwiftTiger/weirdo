@@ -62,6 +62,8 @@ namespace weirdo
         {
             StatTemplates.InitializeStatTemplates();
             var player = new Player();
+            var map = new Map();
+            player.CreateIn(map.Areas[3, 3].SubAreas[0]);
 
             foreach(var s in player.PlayerStats)
             {
@@ -128,9 +130,15 @@ namespace weirdo
             else if (_input.KeyChar.ToString().ToUpper() == "A")
             {
                 Console.WriteLine("");
-                PrintSlow("You are standing in front of §Your Homeß in the town of §" + NameGenerator.TownNameGenerator().ToUpper() + "ß.");
+                PrintSlow("You are standing in §" + player.Location.Name + "ß.");
                 Console.WriteLine("");
-                PrintSlow("The town has a §General Storeß, a §Church of the Lordß, a §Public Buildingß and two §Residential Homesß.");
+                PrintSlow("Nearby are:");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                foreach(var s in player.Location.SubAreas)
+                {
+                    Console.WriteLine("a " + s.Name);
+                }
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.ReadLine();
                 Console.WriteLine("");
             }
