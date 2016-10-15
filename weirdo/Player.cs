@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Timers;
 
 namespace weirdo
 {
@@ -14,6 +15,8 @@ namespace weirdo
     {
         public List<Stat> PlayerStats { get; set; }
         const int STAT_COUNT = 10;
+
+        public int money = 50;
 
         public int CheckForStatAmount(int category)
         {
@@ -26,6 +29,18 @@ namespace weirdo
                 }
             }
             return _counter;
+        }
+
+        public void PickupItem(int type, int amount)
+        {
+
+        }
+
+        public void PickupMoney(int amount)
+        {
+            money += amount;
+            Program.PrintSlow($"You found §${amount}ß.");
+            DisplayMoney();
         }
 
         public void LevelUp()
@@ -42,6 +57,17 @@ namespace weirdo
             }
         }
 
+        public void DisplayMoney()
+        {
+            Console.WriteLine("");
+            Program.PrintSlow("You have ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program.PrintSlow($"${money}");
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.PrintSlow(".");
+            Console.WriteLine("");
+        }
+
         public void ReadBook(int wordrichness, int type)
         {
             Stat intelligence = null;
@@ -56,7 +82,7 @@ namespace weirdo
             string[] facts = File.ReadLines(@"facts.txt").Skip(type).Take(1).First().Split(',');
             int wlearnt = RandomNumberGenerator.RandomInt(2, wordrichness);
             int flearnt = RandomNumberGenerator.RandomInt(0, facts.Count()) - 1;
-            int intel = Convert.ToInt32(wlearnt * 0.5);
+            int intel = Convert.ToInt32(wlearnt * 0.8);
             if (flearnt == -1)
             {
                 Program.PrintSlow($"You learnt §{wlearnt}ß new words:\n§{String.Join(", ", Program.Shuffle(words).Take(wlearnt))}ß\n\nYou learnt no facts.\n\nThis gives you §{intel} {intelligence.Name}ß!");
