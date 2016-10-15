@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Area.cs" />
+    <Compile Include="InventoryItem.cs" />
+    <Compile Include="LivingObject.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="NameGenerator.cs" />
     <Compile Include="Object.cs" />

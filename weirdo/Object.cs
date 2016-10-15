@@ -10,6 +10,9 @@ namespace weirdo
     {
         public int ID { get; set; }
         public string Name { get; set; }
+        public int Type { get; set; }
+        public bool Collectible { get; set; }
+
         public Area Location { get; set; }
 
         public void CreateIn(Area destinationArea)
@@ -18,9 +21,9 @@ namespace weirdo
             Location = destinationArea;
         }
 
-        public void MoveBetween(Area startingArea, Area destinationArea)
+        public void MoveTo(Area destinationArea)
         {
-            startingArea.Objects.Remove(this);
+            Location.Objects.Remove(this);
             Location = destinationArea;
             destinationArea.Objects.Add(this);
         }
