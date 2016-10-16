@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -12,10 +11,8 @@ namespace weirdo
 
     class Program
     {
-      
         public static bool YesOrNo(string prompt)
         {
-            
             string s = "";
             Console.WriteLine(prompt);
             while (s != "y" && s != "n")
@@ -62,8 +59,6 @@ namespace weirdo
         {
             StatTemplates.InitializeStatTemplates();
             var player = new Player();
-            var map = new Map();
-            player.CreateIn(map.Areas[3, 3].SubAreas[0]);
 
             foreach(var s in player.PlayerStats)
             {
@@ -89,19 +84,16 @@ namespace weirdo
                     Console.WriteLine(StatTemplates.GetStatTemplateByID(i).TwoMessage);
                 }
             }
-           // player.DisplayMoney();
-           // player.PickupMoney(100);
+            player.DisplayMoney();
+            player.PickupMoney(100);
 
-            ConsoleKeyInfo _input;
-            _input = Console.ReadKey(false);
-            Debug.WriteLine(_input.KeyChar.ToString().ToUpper());
-            if (_input.KeyChar.ToString().ToUpper() == "L")
+            if (Console.ReadKey().Key.ToString().ToUpper() == "L")
             {
                 player.LevelUp();
                 
-               
+                Console.ReadKey();
             }
-            else if (_input.KeyChar.ToString().ToUpper() == "S")
+            else if (Console.ReadKey().Key.ToString().ToUpper() == "S")
             {
                 if (player.CheckForStatAmount(StatTemplates.Intelligence.ID) != 0)
                 {
@@ -112,9 +104,9 @@ namespace weirdo
                     PrintSlow("You cannot read books.");
                 }
 
-               
+                Console.ReadKey();
             }
-           else if (_input.KeyChar.ToString().ToUpper() == "G")
+            else if (Console.ReadKey().Key.ToString().ToUpper() == "G")
             {
                 if (player.CheckForStatAmount(StatTemplates.Intelligence.ID) != 0)
                 {
@@ -125,42 +117,14 @@ namespace weirdo
                     PrintSlow("You cannot read books.");
                 }
 
-               
-            }
-            
-            else if (_input.KeyChar.ToString().ToUpper() == "B")
-            {
-                Stat strength = null;
-                foreach (Stat s in player.PlayerStats)
-                {
-                    if (s.Category == StatTemplates.Strength.ID)
-                    {
-                        strength = s;
-                    }
-                }
-                if (player.CheckForStatAmount(StatTemplates.Strength.ID) == 0)
-                {
-                    PrintSlow("You cannot use Steroids.");
-                }
-                else
-                {
-                    PrintSlow("You used §Steroidsß!\n");
-                    player.Buff(strength, 5, 10, "Steroids");
-                }
                 Console.ReadKey();
             }
-            else if (_input.KeyChar.ToString().ToUpper() == "A")
+            else
             {
                 Console.WriteLine("");
-                PrintSlow("You are standing in §" + player.Location.Name + "ß.");
+                PrintSlow("You are standing in front of §Your Homeß in the town of §" + NameGenerator.TownNameGenerator().ToUpper() + "ß.");
                 Console.WriteLine("");
-                PrintSlow("Nearby are:");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                foreach(var s in player.Location.SubAreas)
-                {
-                    Console.WriteLine("a " + s.Name);
-                }
-                Console.ForegroundColor = ConsoleColor.White;
+                PrintSlow("The town has a §General Storeß, a §Church of the Lordß, a §Public Buildingß and two §Residential Homesß.");
                 Console.ReadLine();
                 Console.WriteLine("");
             }

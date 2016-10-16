@@ -5,14 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
 using System.Timers;
 
 namespace weirdo
 {
     
 
-    public class Player : Object
+    public class Player
     {
         public List<Stat> PlayerStats { get; set; }
         const int STAT_COUNT = 10;
@@ -42,24 +41,6 @@ namespace weirdo
             money += amount;
             Program.PrintSlow($"You found §${amount}ß.");
             DisplayMoney();
-        }
-
-        public void Buff(Stat type, int time, int strength, string name)
-        {
-            type.Value += strength;
-            Timer buffTimer = new Timer();
-            
-            Program.PrintSlow($"Your §{type.Name}ß has increased for §{time}ß seconds by §{strength}ß.\n");
-            buffTimer.Elapsed += (sender, e) => BuffEnd(sender, e, type, strength, name, buffTimer);
-            buffTimer.Interval = time * 1000;
-            buffTimer.Enabled = true;
-        }
-
-        public static void BuffEnd(object source, ElapsedEventArgs e, Stat type, int strength, string name, Timer buffTimer)
-        {
-            type.Value -= strength;
-            Program.PrintSlow($"Your §{name}ß ran out, reducing your §{type.Name}ß.\n");
-            buffTimer.Enabled = false;
         }
 
         public void LevelUp()
@@ -111,13 +92,10 @@ namespace weirdo
                 intel += 2;
                 Program.PrintSlow($"You learnt §{wlearnt}ß new words:\n§{String.Join(", ", Program.Shuffle(words).Take(wlearnt))}ß\n\nYou learnt a fact: {facts[flearnt]}.\n\nThis gives you §{intel} {intelligence.Name}ß!");
             }
-            intelligence.Value += intel;
         }
 
         public Player()
         {
-            ID = 0;
-            Name = "Player";
             PlayerStats = new List<Stat>();
 
             int _doubleStat = RandomNumberGenerator.RandomInt(1, 10);
